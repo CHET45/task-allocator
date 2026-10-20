@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: allocator
+      POSTGRES_USER: allocator
+      POSTGRES_PASSWORD: allocator
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U allocator"]
+      interval: 2s
+      retries: 15
+
+  app:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://allocator:allocator@db:5432/allocator
+      DATA_DIR: /data
+    volumes:
+      - appdata:/data
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  appdata:

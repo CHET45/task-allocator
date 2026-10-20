@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uzdevumu sadale · DEV</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230c66e4'/%3E%3Cpath d='M9 11h14M9 16h9M9 21h11' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">Jira Cloud</span>
+      <span class="brand-env">demonstrācijas vide</span>
+    </div>
+    <div class="topbar-search" aria-hidden="true">Meklēt</div>
+    <div class="topbar-user">
+      <span class="service-dot" id="service-dot" title="Aprēķinu servisa stāvoklis"></span>
+      <span class="avatar avatar-sm" style="--av:#5e4db2">VD</span>
+      <span class="user-name">Vadītājs (demo)</span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="Projekta navigācija">
+      <div class="project">
+        <span class="project-icon">D</span>
+        <div>
+          <div class="project-name">Uzdevumu sadales sistēma</div>
+          <div class="project-type">Programmatūras projekts · DEV</div>
+        </div>
+      </div>
+      <div class="nav-group">Plānošana</div>
+      <a href="#/board" data-nav="board">Uzdevumi</a>
+      <a href="#/dashboard" data-nav="dashboard">Komandas pārskats <span class="nav-tag">vizuāls</span></a>
+      <div class="nav-group">Uzdevumu sadale <span class="app-tag">Forge lietotne</span></div>
+      <a href="#/skills" data-nav="skills">Kvalifikāciju katalogs</a>
+      <a href="#/employees" data-nav="employees">Darbinieki un kvalifikācijas</a>
+      <a href="#/history" data-nav="history">Lēmumu vēsture</a>
+      <a href="#/settings" data-nav="settings">Iestatījumi</a>
+      <div class="sidebar-foot">
+        <a href="/docs" target="_blank" rel="noopener">API dokumentācija ↗</a>
+      </div>
+    </nav>
+    <main id="view" class="view" tabindex="-1"></main>
+  </div>
+
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <div id="modal-root"></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+stages:
+  - test
+
+pytest:
+  stage: test
+  image: python:3.13-slim
+  cache:
+    paths:
+      - .cache/pip
+  variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  script:
+    - pip install -r requirements.txt
+    - pytest -q --junitxml=report.xml
+  artifacts:
+    when: always
+    reports:
+      junit: report.xml
